@@ -1,3 +1,6 @@
+require 'thread'
+require 'fileutils'
+
 class TopNFileProcessor
   attr_accessor :filename
 
