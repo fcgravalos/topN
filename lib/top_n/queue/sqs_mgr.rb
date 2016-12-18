@@ -52,7 +52,6 @@ module TopN
             wait_time_seconds: 10,
           ).messages.last
           JSON.load(message.body)
-          #message.nil? ? raise("Timeout Reached") : JSON.parse(message)
         rescue Aws::SQS::Errors::ServiceError => excp
           logger.error("Could not read from queue #{queue}.\
           Reason: #{excp.message}\
