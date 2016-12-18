@@ -1,0 +1,6 @@
+source 'https://rubygems.org'
+gem 'aws-sdk'
+gem 'daemons'
+gem 'redis'
+gem 'activesupport'
+gem 'commander'
