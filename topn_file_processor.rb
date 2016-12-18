@@ -8,7 +8,7 @@ class TopNFileProcessor
     @filename = filename
   end
 
-  def split_file(chunk_size = '4m', output_prefix = 'splitted')
+  def split_file(chunk_size = '128k', output_prefix = 'splitted')
     dir = File.dirname(filename)
     system("split -b #{chunk_size} #{filename} #{dir}/#{output_prefix}")
     Dir.glob("#{dir}/#{output_prefix}*")

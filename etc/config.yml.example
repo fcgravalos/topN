@@ -1,0 +1,27 @@
+cluster:
+  worker_nodes: 4 # Aside the master
+  worker_user: "topN" # The unprivileged user the worker will use when fork
+  worker_group: "topN" # The unprivileges group the worker will use when fork
+  worker_log_prefix: "./tmp/topN_worker" # Will be suffixed with the worker id
+queue:
+  messages_cache:
+    provider: 'redis'
+    redis:
+      url: "redis://localhost:6379"
+      key_expiration_time: 3600
+  chunks_queue:
+    provider: 'sqs'
+    sqs:
+      url: "https://sqs.eu-west-1.amazonaws.com/123456789012/chunks_queue"
+      profile: "sqs_full"
+      region: "eu-west"
+    rabbitmq:
+      url: "rabbitmq://127.0.0.1:1234/chunks"
+  results_queue:
+    provider: 'sqs'
+    sqs:
+      url: "https://sqs.eu-west-1.amazonaws.com/123456789012/results_queue"
+      profile: "sqs_full"
+      region: "eu-west"
+    rabbitmq:
+      url: "rabbitmq://127.0.0.1:1234"

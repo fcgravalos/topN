@@ -57,7 +57,7 @@ class Cluster
       c.action do |args, options|
         fail("Wrong number of arguments, run 'cluster.rb --help'") unless args.length == 2 
         file = args.first
-        n = args.last
+        n = args.last.to_i
         
         fail("File #{file} not found") unless File.exists?(file)
         options.default :config => CONFIG
